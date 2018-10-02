@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './App.css';
-
 import logo from './logo.svg';
 
 class App extends React.Component {
@@ -11,9 +10,16 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React!!!!</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <div>
+            <form>
+              <p>Text to encrypt/decrypt:</p>
+              <input type="text" name="firstname"/>
+              <p>Key:</p>
+              <input type="text" name="lastname"/>
+            </form>
+            <button className="btn btn-default" value="Encrypt">Encrypt</button>
+            <button className="btn btn-default" value="Decrypt">Decrypt</button>
+        </div>
       </div>
     );
   }
