@@ -15,7 +15,7 @@ class App extends React.Component<IProperties, State> {
     this.state = {
       bruteForce: false,      
       inputText: '',
-      key:'0'
+      key:''
     }
     this.handleChange = this.handleChange.bind(this);
     this.encrypt = this.encrypt.bind(this);
@@ -32,22 +32,26 @@ class App extends React.Component<IProperties, State> {
           <form>
             <input type="text" className="form-contents form-input-text" size={100} name="inputText" placeholder="Text to encrypt/decrypt"
             onChange={this.handleChange}/>
-            <input type="text" className="form-contents form-key" size={3} maxLength={2} name="key" placeholder="Key"/>
+            <input type="text" className="form-contents form-key" size={3} maxLength={2} name="key" placeholder="Key"
+            onChange={this.handleChange}/>
           </form>
           <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt} >Encrypt</button>
           <button className="btn btn-default button-padding" value="Decrypt">Decrypt</button>
           <output id="output-field" className="form-output">Output</output>
+          <output id="debug-field" className="form-output">Debug line</output>
         </div>
       </div>
     );
   }
   
-  private handleChange(event:any) {
+  private handleChange(event: any) { //This use of any is ugly and should be fixed
     this.setState({[event.target.name]: event.target.value});
+    document.getElementById("debug-field").innerHTML = "state:  " + [event.target.name] + " value: " + event.target.value;
   }
 
   private encrypt() {
-    alert("State is now set to: inputText: " + this.state.inputText + "key: " + this.state.key)
+    //alert("State is now set to: inputText: " + this.state.inputText + "key: " + this.state.key)
+    document.getElementById("output-field").innerHTML = "State is now set to: " + this.state.inputText + "  key: " + this.state.key;
   }
 }
 
