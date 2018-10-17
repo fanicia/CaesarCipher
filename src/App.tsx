@@ -1,3 +1,4 @@
+import CaesarEngine from './CaesarEngine';
 import * as React from 'react';
 import './App.css';
 import logo from './logo.svg';
@@ -10,6 +11,9 @@ type State = {
   key?: string
 }
 class App extends React.Component<IProperties, State> {
+
+  private caesarEngine: CaesarEngine;
+
   constructor(props:any) {
     super(props);
     this.state = {
@@ -17,6 +21,7 @@ class App extends React.Component<IProperties, State> {
       inputText: '',
       key:''
     }
+    this.caesarEngine = new CaesarEngine();
     this.handleChange = this.handleChange.bind(this);
     this.encrypt = this.encrypt.bind(this);
   }
@@ -38,7 +43,7 @@ class App extends React.Component<IProperties, State> {
           <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt} >Encrypt</button>
           <button className="btn btn-default button-padding" value="Decrypt">Decrypt</button>
           <output id="output-field" className="form-output">Output</output>
-          <output id="debug-field" className="form-output">Debug line</output>
+          <output id="debug-field" className="form-output"/>
         </div>
       </div>
     );
@@ -46,12 +51,16 @@ class App extends React.Component<IProperties, State> {
   
   private handleChange(event: any) { //This use of any is ugly and should be fixed
     this.setState({[event.target.name]: event.target.value});
-    document.getElementById("debug-field").innerHTML = "state:  " + [event.target.name] + " value: " + event.target.value;
+    //document.getElementById("debug-field").innerHTML = "state:  " + [event.target.name] + " value: " + event.target.value;
   }
 
   private encrypt() {
-    //alert("State is now set to: inputText: " + this.state.inputText + "key: " + this.state.key)
-    document.getElementById("output-field").innerHTML = "State is now set to: " + this.state.inputText + "  key: " + this.state.key;
+    this.caesarEngine;
+    this.setOutput(this.caesarEngine.encrypt(this.state.inputText, this.state.key));
+  }
+
+  private setOutput(output:string) {
+    document.getElementById("output-field").innerHTML = output;
   }
 }
 
