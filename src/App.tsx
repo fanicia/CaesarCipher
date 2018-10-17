@@ -24,6 +24,7 @@ class App extends React.Component<IProperties, State> {
     this.caesarEngine = new CaesarEngine();
     this.handleChange = this.handleChange.bind(this);
     this.encrypt = this.encrypt.bind(this);
+    this.decrypt = this.decrypt.bind(this);
   }
   
   public render() {
@@ -40,8 +41,8 @@ class App extends React.Component<IProperties, State> {
             <input type="text" className="form-contents form-key" size={3} maxLength={2} name="key" placeholder="Key"
             onChange={this.handleChange}/>
           </form>
-          <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt} >Encrypt</button>
-          <button className="btn btn-default button-padding" value="Decrypt">Decrypt</button>
+          <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt}>Encrypt</button>
+          <button className="btn btn-default button-padding" value="Decrypt" onClick={this.decrypt}>Decrypt</button>
           <output id="output-field" className="form-output">Output</output>
           <output id="debug-field" className="form-output"/>
         </div>
@@ -55,8 +56,13 @@ class App extends React.Component<IProperties, State> {
   }
 
   private encrypt() {
-    this.caesarEngine;
-    this.setOutput(this.caesarEngine.encrypt(this.state.inputText, this.state.key));
+    let keyInt = parseInt(this.state.key);
+    this.setOutput(this.caesarEngine.encrypt(this.state.inputText, keyInt));
+  }
+
+  private decrypt() {
+    let keyInt = parseInt(this.state.key);
+    this.setOutput(this.caesarEngine.decrypt(this.state.inputText, keyInt));
   }
 
   private setOutput(output:string) {

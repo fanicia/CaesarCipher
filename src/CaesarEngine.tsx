@@ -10,14 +10,18 @@ export default class CaesarEngine {
                       "Z", "Æ", "Ø", "Å"];
   }
 
-  public encrypt(m:string, key:string) : string {
+  public encrypt(m:string, key:number) : string {
     m = m.toUpperCase();
-    let keyInt = parseInt(key) % 28;
+    let keyMod = key % 28;
     let c = "";
     for (var i = 0; i < m.length; i++) {
-      c = c + this.handleCharacter(m.charAt(i), keyInt)
+      c = c + this.handleCharacter(m.charAt(i), keyMod)
     }
     return c;
+  }
+
+  public decrypt(m:string, key:number) : string {
+    return this.encrypt(m, -key);
   }
 
   private handleCharacter(char:string, key:number) {
