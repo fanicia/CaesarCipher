@@ -32,18 +32,18 @@ class App extends React.Component<IProperties, State> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React!!!!</h1>
+          <h1 className="App-title">Velkommen til Cæsarsubstitution</h1>
         </header>
         <div>
           <form>
-            <input type="text" className="form-contents form-input-text" size={100} name="inputText" placeholder="Text to encrypt/decrypt"
+            <input type="text" className="form-contents form-input-text" size={100} name="inputText" placeholder="Input-Tekst"
             onChange={this.handleChange}/>
-            <input type="text" className="form-contents form-key" size={3} maxLength={2} name="key" placeholder="Key"
+            <input type="text" className="form-contents form-key" size={5} maxLength={2} name="key" placeholder="Nøgle"
             onChange={this.handleChange}/>
           </form>
-          <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt}>Encrypt</button>
-          <button className="btn btn-default button-padding" value="Decrypt" onClick={this.decrypt}>Decrypt</button>
-          <output id="output-field" className="form-output">Output</output>
+          <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt}>Kryptér!</button>
+          <button className="btn btn-default button-padding" value="Decrypt" onClick={this.decrypt}>Dekryptér!</button>
+          <output id="output-field" className="form-output"/>
           <output id="debug-field" className="form-output"/>
         </div>
       </div>
