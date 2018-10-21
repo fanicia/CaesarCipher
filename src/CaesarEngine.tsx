@@ -29,6 +29,10 @@ export default class CaesarEngine {
     let charIndex = this.alphabet.indexOf(char)
     if (charIndex !== -1) {
       shiftedIndex = (charIndex + key) % this.alphabet.length;
+      if (shiftedIndex < 0) {
+        //shiftedIndex is negative
+        shiftedIndex = this.alphabet.length + shiftedIndex;
+      }
       console.log("Just shifted " + char + " to " + this.alphabet[shiftedIndex] + " for key: " + key);
       return this.alphabet[shiftedIndex];
     }
