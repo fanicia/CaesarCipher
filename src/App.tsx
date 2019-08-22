@@ -25,6 +25,7 @@ class App extends React.Component<IProperties, State> {
     this.handleChange = this.handleChange.bind(this);
     this.encrypt = this.encrypt.bind(this);
     this.decrypt = this.decrypt.bind(this);
+    this.bruteForce = this.bruteForce.bind(this);
   }
   
   public render() {
@@ -43,6 +44,7 @@ class App extends React.Component<IProperties, State> {
           </form>
           <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt}>Kryptér!</button>
           <button className="btn btn-default button-padding" value="Decrypt" onClick={this.decrypt}>Dekryptér!</button>
+          <button className="btn btn-default button-padding" value="Decrypt" onClick={this.bruteForce}>Giv mig mulighederne!</button>
           <output id="output-field" className="form-output"/>
           <output id="debug-field" className="form-output"/>
         </div>
@@ -67,6 +69,17 @@ class App extends React.Component<IProperties, State> {
 
   private setOutput(output:string) {
     document.getElementById("output-field").innerHTML = output;
+  }
+
+  private bruteForce() {
+    let resultArray = new Array(27);
+    let resultHtml = "<ol>";
+    for (var i = 1; i <= 27; i++) {
+      resultArray[i] = this.caesarEngine.decrypt(this.state.inputText, i);
+      resultHtml = resultHtml + "<li>" + this.caesarEngine.decrypt(this.state.inputText, i) + "</li>";
+    }
+    resultHtml = resultHtml + "</ol>";
+    this.setOutput(resultHtml);
   }
 }
 

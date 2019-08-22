@@ -33,10 +33,8 @@ export default class CaesarEngine {
         //shiftedIndex is negative
         shiftedIndex = this.alphabet.length + shiftedIndex;
       }
-      console.log("Just shifted " + char + " to " + this.alphabet[shiftedIndex] + " for key: " + key);
       return this.alphabet[shiftedIndex];
     }
-    console.log("skipped shifting char: " + char);
     return char;
   }
 
