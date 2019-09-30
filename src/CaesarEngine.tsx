@@ -6,13 +6,13 @@ export default class CaesarEngine {
 
   public constructor() {
     this.alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-                      "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", 
+                      "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", 
                       "Z", "Æ", "Ø", "Å"];
   }
 
   public encrypt(m:string, key:number) : string {
     m = m.toUpperCase();
-    let keyMod = key % 28;
+    let keyMod = key % 29;
     let c = "";
     for (var i = 0; i < m.length; i++) {
       c = c + this.handleCharacter(m.charAt(i), keyMod)

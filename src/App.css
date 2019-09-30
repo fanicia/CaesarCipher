@@ -45,3 +45,7 @@ body {
 .form-output {
   margin-top: 50px;
 }
+
+.hidden-button {
+  display: none;
+}
