@@ -44,7 +44,7 @@ class App extends React.Component<IProperties, State> {
           </form>
           <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt}>Kryptér!</button>
           <button className="btn btn-default button-padding" value="Decrypt" onClick={this.decrypt}>Dekryptér!</button>
-          <button className="btn btn-default button-padding hidden-button" onClick={this.bruteForce}>Giv mig mulighederne!</button>
+          <button className="btn btn-default button-padding" onClick={this.bruteForce}>Giv mig mulighederne!</button>
           <output id="output-field" className="form-output"/>
           <output id="debug-field" className="form-output"/>
         </div>
@@ -74,7 +74,7 @@ class App extends React.Component<IProperties, State> {
   private bruteForce() {
     let resultArray = new Array(27);
     let resultHtml = "<ol class='list-group'>";
-    for (var i = 1; i <= 27; i++) {
+    for (var i = 1; i <= 28; i++) {
       resultArray[i] = this.caesarEngine.decrypt(this.state.inputText, i);
       resultHtml = resultHtml + "<li class='list-group-item'>" + this.caesarEngine.decrypt(this.state.inputText, i) + "<span class='badge badge-primary badge-pill'>" + i + "</span>" +  "</li>";
     }
