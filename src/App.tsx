@@ -44,7 +44,7 @@ class App extends React.Component<IProperties, State> {
           </form>
           <button className="btn btn-default button-padding" value="Encrypt" onClick={this.encrypt}>Kryptér!</button>
           <button className="btn btn-default button-padding" value="Decrypt" onClick={this.decrypt}>Dekryptér!</button>
-          <button className="btn btn-default button-padding" onClick={this.bruteForce}>Giv mig mulighederne!</button>
+          <button className="btn btn-default button-padding hidden-button" onClick={this.bruteForce}>Giv mig mulighederne!</button>
           <output id="output-field" className="form-output"/>
           <output id="debug-field" className="form-output"/>
         </div>
@@ -54,7 +54,6 @@ class App extends React.Component<IProperties, State> {
   
   private handleChange(event: any) { //This use of any is ugly and should be fixed
     this.setState({[event.target.name]: event.target.value});
-    //document.getElementById("debug-field").innerHTML = "state:  " + [event.target.name] + " value: " + event.target.value;
   }
 
   private encrypt() {
