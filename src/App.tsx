@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { CaesarEngine } from './CaesarEngine';
 
 export default function App() {
