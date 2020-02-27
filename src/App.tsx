@@ -15,15 +15,15 @@ export default function App() {
   }
 
   const decrypt = (): void => {
-      const message = caesarEngine.decrypt(text.value, key.value);
+    const message = caesarEngine.decrypt(text.value, key.value);
     setOutput(message);
   }
 
   const bruteForce = (): void => {
     var resultHtmlString = "<ol class='list-group'>";
     const bruteForceStrings: string[] = caesarEngine.bruteForce(text.value);
-    for (var i = 0; i < bruteForceStrings.length; i++) {
-      resultHtmlString = resultHtmlString + "<li class='list-group-item'>" + bruteForceStrings[i] + "<span class='badge badge-primary badge-pill'></span>" + "</li>";
+    for (var i = 1; i < bruteForceStrings.length; i++) {
+      resultHtmlString = resultHtmlString + "<li class='list-group-item'>" + bruteForceStrings[i] + "</li>";
     }
     resultHtmlString = resultHtmlString + "</ol>";
 

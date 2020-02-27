@@ -20,7 +20,7 @@ export class CaesarEngine {
 
 	public bruteForce(cipherText: string): string[] {
 		var resultArray = new Array(this.alphabet.length);
-    for (var i = 0; i < resultArray.length; i++) {
+    for (var i = 1; i < resultArray.length; i++) {
       resultArray[i] = this.decrypt(cipherText, i);
 		}
 		return resultArray;
