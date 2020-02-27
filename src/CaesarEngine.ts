@@ -18,6 +18,14 @@ export class CaesarEngine {
 		return this.encrypt(cipherText, -key)
 	}
 
+	public bruteForce(cipherText: string): string[] {
+		var resultArray = new Array(this.alphabet.length);
+    for (var i = 0; i < resultArray.length; i++) {
+      resultArray[i] = this.decrypt(cipherText, i);
+		}
+		return resultArray;
+	}
+
 	private handleCharacter(char:string, key:number) {
     var shiftedIndex = 0;    
     var charIndex = this.alphabet.indexOf(char)

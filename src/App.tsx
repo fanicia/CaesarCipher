@@ -20,7 +20,14 @@ export default function App() {
   }
 
   const bruteForce = (): void => {
+    var resultHtmlString = "<ol class='list-group'>";
+    const bruteForceStrings: string[] = caesarEngine.bruteForce(text.value);
+    for (var i = 0; i < bruteForceStrings.length; i++) {
+      resultHtmlString = resultHtmlString + "<li class='list-group-item'>" + bruteForceStrings[i] + "<span class='badge badge-primary badge-pill'></span>" + "</li>";
+    }
+    resultHtmlString = resultHtmlString + "</ol>";
 
+    setOutput(resultHtmlString);
   }
 
   const setOutput = (output: string): void => {
@@ -59,7 +66,7 @@ const useFormInput = (): any => {
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     setValue(e.target.value);
   }
-  
+
   return {
     value,
     onChange: handleChange
