@@ -1,7 +1,0 @@
-{
-  "extends": ["tslint-react", "tslint-config-prettier"],
-  "rules": {
-    "member-ordering": [false],
-    "no-empty-interface": false
-  }
-}
