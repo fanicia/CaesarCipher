@@ -2,21 +2,32 @@ import React from 'react';
 import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { CaesarEngine } from './CaesarEngine';
 
 export default function App() {
   const text =  useFormInput();
   const key = useFormInput();
-    
-  const encrypt = (): any => {
+  const caesarEngine = new CaesarEngine();
+
+  const encrypt = (): void => {
+    const cipherText = caesarEngine.encrypt(text.value, key.value);
+    setOutput(cipherText);
+  }
+
+  const decrypt = (): void => {
+      const message = caesarEngine.decrypt(text.value, key.value);
+    setOutput(message);
+  }
+
+  const bruteForce = (): void => {
 
   }
 
-  const decrypt = (): any => {
-
-  }
-
-  const bruteForce = (): any => {
-
+  const setOutput = (output: string): void => {
+    const outputElement : HTMLElement | null = document.getElementById("output-field")
+    if (outputElement) {
+      outputElement.innerHTML = output;
+    }
   }
   
   return (
@@ -43,12 +54,12 @@ export default function App() {
 
 
 const useFormInput = (): any => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState<string>();
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     setValue(e.target.value);
   }
-
+  
   return {
     value,
     onChange: handleChange
