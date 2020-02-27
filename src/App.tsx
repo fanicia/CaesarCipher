@@ -33,7 +33,7 @@ class App extends React.Component<IProperties, State> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Velkommen til Cæsarsubstitution Version 0.1</h1>
+          <h1 className="App-title">Velkommen til Cæsarsubstitution Version 1.0</h1>
         </header>
         <div>
           <form>
