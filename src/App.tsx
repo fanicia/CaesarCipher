@@ -44,16 +44,16 @@ export default function App() {
       </header>
       <div className="content">
         <form>
-          <input type="text" className="form-contents form-input-text" size={100} name="inputText" placeholder="Input-Tekst"
+          <input type="text" className="form-contents form-input-text form-element" size={100} name="inputText" placeholder="Input-Tekst"
           onChange={text.onChange}/>
-          <input type="text" className="form-contents form-key" size={5} maxLength={2} name="key" placeholder="Nøgle"
+          <input type="text" className="form-contents form-key form-element" size={5} maxLength={2} name="key" placeholder="Nøgle"
           onChange={key.onChange}/>
         </form>
-        <button className="btn btn-default button-padding" value="Encrypt" onClick={encrypt}>Kryptér!</button>
-        <button className="btn btn-default button-padding" value="Decrypt" onClick={decrypt}>Dekryptér!</button>
-        <button className="btn btn-default button-padding hidden-button" onClick={bruteForce}>Giv mig mulighederne!</button>
-        <output id="output-field" className="form-output"/>
-        <output id="debug-field" className="form-output"/>
+        <button className="btn btn-default form-element" value="Encrypt" onClick={encrypt}>Kryptér!</button>
+        <button className="btn btn-default form-element" value="Decrypt" onClick={decrypt}>Dekryptér!</button>
+        <button className="btn btn-default form-element hidden-button" onClick={bruteForce}>Giv mig mulighederne!</button>
+        <output id="output-field" className="form-output form-element"/>
+        <output id="debug-field" className="form-output form-element"/>
       </div>
     </div>
   );
