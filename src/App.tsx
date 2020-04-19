@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import logo from './logo.svg';
+import logo from './lock.png';
 import './App.scss';
 import { CaesarEngine } from './CaesarEngine';
 
@@ -23,7 +23,7 @@ export default function App() {
     var resultHtmlString = "<ol class='list-group'>";
     const bruteForceStrings: string[] = caesarEngine.bruteForce(text.value);
     for (var i = 1; i < bruteForceStrings.length; i++) {
-      resultHtmlString = resultHtmlString + "<li class='list-group-item'>" + bruteForceStrings[i] + "</li>";
+      resultHtmlString = resultHtmlString + "<li class='list-group-item'>" + bruteForceStrings[i] + "<span class='badge badge-primary badge-pill'>" + i + "</span> </li>";
     }
     resultHtmlString = resultHtmlString + "</ol>";
 
